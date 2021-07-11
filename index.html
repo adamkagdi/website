@@ -1,24 +1,87 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-	<head>
-		<title>Adam Kagdi's Website</title>
-		<link rel='stylesheet' type='text/css' href="style.css">
-		<meta charset="utf-8"/>
-	</head>
-	<body>
+<head>
+    <title>Luke Smith's Webpage</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel='stylesheet' type='text/css' href='style.css'>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel='alternate' type='application/rss+xml' title='Luke Smith RSS' href='/rss.xml'>
+</head>
 
-<h1>Adam Kagdi's Website</h1>
+<body>
+    <header>
+        <h1>Luke Smith's Webpage</h1>
+    </header>
 
-<h2>Why Have I made this website?</h2>
-<p>I have made this website so I look cool online and also I don't want to become a <strong>web peasant</strong>.</p>
+        <main>
+        <img class=resright src="pix/portrait.webp" alt="Luke" title="Luke">
 
-<h2>Why not a <strong>web peasant</strong>?</h2>
-<ol>
-	<li>I can look cool</li>
-	<li>An evidence for me knowing HTML and CSS</li>
-	<li>This shows up on google instead of my Twitter or Instagram</li>
-	<li>I was bored</li>
-</ol>
+<style>
+ul { padding-left: 0 ; }
+</style>
 
-	</body>
+        <h2>In My Network</h2>
+
+        <dl style=font-size:large>
+            <dt><a href="https://videos.lukesmith.xyz">Videos</a></dt><dd> Or watch them on <a href="https://odysee.com/$/invite/@Luke:7">Odysee</a> or <a href="https://youtube.com/c/lukesmithxyz">YouTube</a>.</dd>
+        <dt><a href="https://larbs.xyz">LARBS</a></dt><dd> My installable GNU/Linux dotfiles running <a href="https://suckless.org">suckless software</a> on <a href="https://artixlinux.org">Artix Linux</a></dd>
+        <dt><a href="https://notrelated.xyz"><em>Not Related!</em></a></dt><dd> My Podcast on numerous actually important topics. See this if new.</dd>
+        <dt><a href="https://github.com/lukesmithxyz">Github</a></dt><dd> The programs and scripts I maintain for public consumption.</dd>
+        <dt><a href="https://landchad.net">LandChad.net</a></dt><dd> A tutorial site to help you set up your own website and self-hosted services.</dd>
+        <dt><a href="https://based.cooking">Based.Cooking</a></dt><dd> A minimalist, adfree and unintrustive recipe website I maintain now.</dd>
+        </dl>
+
+        <h2 style=clear:both;>📜 Writings</h2>
+
+        <div class=column>
+        <h3>Recent Articles</h3>
+        <ul>
+        <!--BLOG--><li>2021 Jun 26 &ndash; <a href="articles/matrix-vs-xmpp.html">Matrix vs. XMPP</a></li><li>2021 Jun 18 &ndash; <a href="articles/late-livestream-on-youtube-asap.html">Late livestream on YouTube ASAP</a></li><li>2021 Jun 08 &ndash; <a href="articles/i-appeared-on-monero-talk.html">I appeared on Monero Talk</a></li><li>2021 May 29 &ndash; <a href="articles/modern-freedom-means-being-a-slave-to-impulses.html">Modern "Freedom" Means Being a Slave to Impulses</a></li><li>2021 May 25 &ndash; <a href="articles/livestream-on-youtube-right-now.html">Livestream on YouTube right now</a></li><li>2021 May 13 &ndash; <a href="articles/odysee-stream-over-worked-well.html">Odysee stream over, worked well!</a></li><li>2021 May 13 &ndash; <a href="articles/testing-out-the-odysee-livestreaming-check-it-out-now.html">Testing out the Odysee Livestreaming; Check it out NOW!</a></li>
+        <li>
+            <strong><a href="blog.html">See all other blog posts...</a></strong>
+        </li>
+        </ul>
+        </div>
+
+        <div class=column>
+        <h3>Topic Cloud</h3>
+        <ul id=tagcloud>
+<!--TAGCLOUD--><a href=tag/crypto.html><li>💰 Crypto</li></a><a href=tag/economics.html><li>📈 Economics</li></a><a href=tag/language.html><li>🗣️ Language</li></a><a href=tag/lifestyle.html><li>👪 Lifestyle</li></a><a href=tag/linux.html><li>🐃 Linux</li></a><a href=tag/personal.html><li>😎 Personal</li></a><a href=tag/philosophy.html><li>🎓 Philosophy</li></a><a href=tag/politics.html><li>👑 Politics</li></a><a href=tag/religion.html><li>⛪ Religion</li></a><a href=tag/science.html><li>🥼 Science</li></a><a href=tag/software.html><li>🖥️ Software</li></a><a href=tag/technology.html><li>⚙️ Technology</li></a><a href=tag/tradition.html><li>📜 Tradition</li></a><a href=tag/tutorial.html><li>📖 Tutorial</li></a><a href=tag/updates.html><li>🆕 Updates</li></a>
+        </ul>
+        </div>
+
+        <h3 style=clear:both><img src="pix/rss.svg" alt="rss logo"> Get updates via RSS</h3>
+
+        <pre style=max-width:300px;margin:auto;><code>https://lukesmith.xyz/rss.xml
+https://lukesmith.xyz/videos
+https://notrelated.xyz/rss</code></pre>
+
+        <h2><a href="https://lukesmith.xyz/donate">💸 Donate.</a></h2>
+
+        <p style=font-size:large;text-align:center><a href="https://lukesmith.xyz/donate">Donate/superchat/subscribe at this link!</a> Or send cryptocurrency:</p>
+
+<style>
+.cryptoinfo code { font-size: xx-small ;}
+</style>
+
+        <div class=cryptocontainer>
+        <div class=cryptoinfo>
+            <img style="max-height:1em;max-width:1em" src=pix/xmr.svg> Monero </br>
+            <code>48jewbtxe4jU3MnzJFjTs3gVFWh2nRrAMWdUuUd7Ubo375LL4SjLTnMRKBrXburvEh38QSNLrJy3EateykVCypnm6gcT9bh</code> </br>
+        <a href=pix/xmr.png><img class=qr src=pix/xmr.png></a>
+        </div>
+        <div class=cryptoinfo>
+        <img style="max-height:1em;max-width:1em" src=pix/btc.svg> Bitcoin </br>
+        <code>bc1qyvkzw7hrtp9ecxd2pa3w7p5dfg09tv6jfrs0df</code> </br>
+        <a href=pix/btc.png><img class=qr src=pix/btc.png></a>
+        </div>
+
+        </div>
+
+        </main>
+
+        <footer><ul><a href="/index.html"><li>🔙 Home</li></a><a href="/articles/contact.html"><li>📧 Contact</li></a><a href="/rss.xml"><li><img src="pix/rss.svg" alt="rss logo"> RSS</li></a><a href="https://donate.lukesmith.xyz"><li>💸 Donate</li></a></ul></footer>
+
+</body>
 </html>
