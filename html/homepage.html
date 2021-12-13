@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Home</title>
+    <link rel="stylesheet" href="../styles/homepage.css">
+    <link href="favicon.png" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+    <div id="search">
+        <input id="search-field" type="text" name="search-field"/>
+    </div>
+    <div class="container">
+        <div id="clock"></div>
+        <div class="weather-container">
+            <div class="row">
+                <div id="weather-description"class="inline"></div>
+                <div class="inline">-</div>
+                <div id="temp" class="inline"></div>
+            </div>
+        </div>
+        <div class="bookmark-container">
+            <div class="bookmark-set">
+                <div class="bookmark-title">Personals</div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://www.netflix.com/browse" target="_blank">Netflix</a>
+                    <a class="bookmark" href="https://https://www.primevideo.com/region/eu/" target="_blank">Prime Video</a>
+                    <a class="bookmark" href="https://outlook.live.com/" target="_blank">Email</a>
+		            <a class="bookmark" href="https://reddit.com/" target="_blank">Reddit</a>
+                </div>
+            </div>
+            <div class="bookmark-set">
+                <div class="bookmark-title">Linux</div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://www.archlinux.org/" target="_blank">Arch Homepage</a>
+                    <a class="bookmark" href="https://wiki.archlinux.org/" target="_blank">Arch Wiki</a>
+                    <a class="bookmark" href="https://www.archlinux.org/packages/" target="_blank">Arch Packages</a>
+                    <a class="bookmark" href="https://aur.archlinux.org/" target="_blank">AUR Home</a>
+                    <a class="bookmark" href="https://github.com/adamkagdi" target="_blank">GitHub</a>
+                </div>
+            </div>
+            <div class="bookmark-set">
+                <div class="bookmark-title">School</div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://xtremepape.rs/" target="_blank">Xtremepapers</a>
+                    <a class="bookmark" href="https://papacambridge.com/" target="_blank">PapaCambridge</a>
+                    <a class="bookmark" href="https://msbdubai.com/" target="_blank">MSB Dubai</a>
+                    <a class="bookmark" href="https://classroom.google.com/u/1/h" target="_blank">Classroom</a>
+                    <a class="bookmark" href="https://meet.google.com" target="_blank">Meet</a>
+                    <a class="bookmark" href="https://mail.google.com/" target="_blank">Gmail</a>
+                </div>
+            </div>
+            <div class="bookmark-set">
+            <div class="bookmark-title">Favourite Channels</div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://www.youtube.com/channel/UC2eYFnH61tmytImy1mTYvhA" target="_blank">Luke Smith</a>
+                    <a class="bookmark" href="https://www.youtube.com/channel/UCVls1GmFKf6WlTraIb_IaJg" target="_blank">DistroTube</a>
+                    <a class="bookmark" href="https://www.youtube.com/channel/UCg6gPGh8HU2U01vaFCAsvmQ" target="_blank">Chris Titus Tech</a>
+                    <a class="bookmark" href="https://www.youtube.com/channel/UCXuqSBlHAE6Xw-yeJA0Tunw" target="_blank">Linus Tech Tips</a>
+                    <a class="bookmark" href="https://www.youtube.com/channel/UCX6OQ3DkcsbYNE6H8uQQuVA" target="_blank">MrBeast</a>
+                    <a class="bookmark" href="https://www.youtube.com/channel/UC-lHJZR3Gqxm24_Vd_AJ5Yw" target="_blank">PewDiePie</a>
+                    <a class="bookmark" href="https://www.youtube.com/channel/UCGmnsW623G1r-Chmo5RB4Yw" target="_blank">JJ Olatunji</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Search on enter key event
+        document.getElementById("search-field").addEventListener("keydown",  event => {
+            if (event.keyCode === 13) {
+                var val = document.getElementById("search-field").value;
+                window.open("https://google.com/search?q=" + val);
+            }
+        });
+        // Get current time and format
+        getTime = () => {
+            let date = new Date(),
+                min = date.getMinutes(),
+                sec = date.getSeconds(),
+                hour = date.getHours();
+
+            return "" +
+                (hour < 10 ? ("0" + hour) : hour) + ":" +
+                (min < 10 ? ("0" + min) : min) + ":" +
+                (sec < 10 ? ("0" + sec) : sec);
+        }
+
+        window.onload = () => {
+            let xhr = new XMLHttpRequest();
+            // Request to open weather map
+            xhr.open('GET', 'http://api.openweathermap.org/data/2.5/weather?id=292223&units=metric&appid=38de6d693303cc7086d4f98fb113625b');
+            xhr.onload = () => {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        let json = JSON.parse(xhr.responseText);
+                        console.log(json);
+                        document.getElementById("temp").innerHTML = json.main.temp.toFixed(0) + " C";
+                        document.getElementById("weather-description").innerHTML = json.weather[0].description;
+                    } else {
+                        console.log('error msg: ' + xhr.status);
+                    }
+                }
+            }
+            xhr.send();
+            // Set up the clock
+            document.getElementById("clock").innerHTML = getTime();
+            // Set clock interval to tick clock
+            setInterval( () => {
+                document.getElementById("clock").innerHTML = getTime();
+            },100);
+        }
+
+        document.addEventListener("keydown", event => {
+            if (event.keyCode == 32) {          // Spacebar code to open search
+                document.getElementById('search').style.display = 'flex';
+                document.getElementById('search-field').focus();
+            } else if (event.keyCode == 27) {   // Esc to close search
+                document.getElementById('search-field').value = '';
+                document.getElementById('search-field').blur();
+                document.getElementById('search').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
